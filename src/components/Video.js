@@ -9,13 +9,8 @@ import { format } from "timeago.js";
 export const Video = ({
     _id,
     title,
-    desc,
     image,
-    likes,
-    dislikes,
-    tags,
     views,
-    video,
     userId,
     createdAt,
     userLoading,
@@ -50,13 +45,10 @@ export const Video = ({
     const addView = async () => {
         try {
             const res = await publicReq.put(`video/view/${_id}`);
-            console.log(res.data);
         } catch (err) {
             toast.error(err.message);
         }
     };
-
-    console.log(user?.googleImage);
 
     return (
         <div>
