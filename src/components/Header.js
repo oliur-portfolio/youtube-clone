@@ -38,13 +38,9 @@ const Header = () => {
 
     const handleLogOut = async () => {
         try {
-            const res = await publicReq.post(
-                "auth/signout",
-                {},
-                {
-                    withCredentials: true,
-                }
-            );
+            const res = await publicReq.post("auth/signout", null, {
+                withCredentials: true,
+            });
 
             dispatch(loginOut());
             navigate("/login");

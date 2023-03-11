@@ -6,7 +6,6 @@ import { userDataState } from "../redux/userSlice";
 import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { MdPhotoCamera } from "react-icons/md";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -48,12 +47,9 @@ const Signup = () => {
             setUploadLoading(true);
 
             const addUpload = async () => {
-                const uploadRes = await axios.post(
-                    "http://localhost:8800/api/upload",
-                    {
-                        image: file,
-                    }
-                );
+                const uploadRes = await publicReq.post("upload", {
+                    image: file,
+                });
 
                 setAvatarData(uploadRes.data);
                 setUploadLoading(false);

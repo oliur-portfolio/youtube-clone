@@ -83,12 +83,9 @@ export const VideoAdd = () => {
             setVideoLoading(true);
 
             const addVideoUpload = async () => {
-                const uploadVideoRes = await axios.post(
-                    "http://localhost:8800/api/upload",
-                    {
-                        video: videofile,
-                    }
-                );
+                const uploadVideoRes = await publicReq.post("upload", {
+                    video: videofile,
+                });
 
                 setVideoFileData(uploadVideoRes.data);
                 setVideoLoading(false);
@@ -101,12 +98,9 @@ export const VideoAdd = () => {
             setImageLoading(true);
 
             const addImageUpload = async () => {
-                const uploadImageRes = await axios.post(
-                    "http://localhost:8800/api/upload",
-                    {
-                        image: imagefile,
-                    }
-                );
+                const uploadImageRes = await publicReq.post("upload", {
+                    image: imagefile,
+                });
 
                 setImageFileData(uploadImageRes.data);
                 setImageLoading(false);
