@@ -48,7 +48,7 @@ const Signin = () => {
                         "Content-Type": "application/json",
                         Accept: "application/json",
                         "Access-Control-Allow-Origin":
-                            "https://oliur-youtube-clone.onrender.com",
+                            "https://oliur-youtube-clone.netlify.app",
                     },
                 });
                 dispatch(loginSuccess(res.data));
