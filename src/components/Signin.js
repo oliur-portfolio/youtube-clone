@@ -43,6 +43,13 @@ const Signin = () => {
             try {
                 const res = await publicReq.post("auth/signin", loginData, {
                     withCredentials: true,
+                    crossDomain: true,
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "Access-Control-Allow-Origin":
+                            "https://oliur-youtube-clone.onrender.com",
+                    },
                 });
                 dispatch(loginSuccess(res.data));
 
