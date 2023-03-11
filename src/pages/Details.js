@@ -139,7 +139,7 @@ const Details = () => {
     return (
         <div className={`pt-[80px] xl:px-[50px] 2xl:px-[90px] pb-10`}>
             {loading ? (
-                "Loading..."
+                <h2 className="text-4xl font-semibold">"Loading..."</h2>
             ) : (
                 <div className="flex items-start gap-[25px]">
                     <div className="flex-1">

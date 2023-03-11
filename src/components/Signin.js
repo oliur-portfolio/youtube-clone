@@ -78,7 +78,16 @@ const Signin = () => {
                     email: userResult.user?.email,
                     googleImage: userResult.user?.photoURL,
                 },
-                { withCredentials: true }
+                {
+                    withCredentials: true,
+                    crossDomain: true,
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "Access-Control-Allow-Origin":
+                            "https://oliur-youtube-clone.netlify.app",
+                    },
+                }
             );
 
             dispatch(loginSuccess(userData.data));
