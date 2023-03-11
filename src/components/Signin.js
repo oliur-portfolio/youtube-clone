@@ -64,11 +64,15 @@ const Signin = () => {
             dispatch(loginStart());
 
             const userResult = await signInWithPopup(auth, provider);
-            const userData = await publicReq.post("auth/google", {
-                username: userResult.user?.displayName,
-                email: userResult.user?.email,
-                googleImage: userResult.user?.photoURL,
-            });
+            const userData = await publicReq.post(
+                "auth/google",
+                {
+                    username: userResult.user?.displayName,
+                    email: userResult.user?.email,
+                    googleImage: userResult.user?.photoURL,
+                },
+                { withCredentials: true }
+            );
 
             dispatch(loginSuccess(userData.data));
             navigate("/");
